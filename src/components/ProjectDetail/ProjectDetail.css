@@ -1,0 +1,55 @@
+.project-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  text-align: center;
+}
+
+.project-description {
+  margin-top: 2em;
+  margin-bottom: 2em;;
+}
+
+.project-detail img {
+  margin-top: 3em;
+  max-width: 100%;
+  height: auto;
+}
+
+.project-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project-detail li {
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.5em;
+  background: var(--clr-bg-alt);
+  border-radius: 5px;
+}
+
+.project-detail a {
+  display: inline-block;
+  margin: 1em;
+  padding: 0.5em 1em;
+  background: var(--clr-primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.project-detail button {
+  display: inline-block;
+  margin: 1em;
+  padding: 0.5em 1em;
+  background: var(--clr-primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* .project-detail button:hover {
+  background: var(--clr-primary-dark);
+} */

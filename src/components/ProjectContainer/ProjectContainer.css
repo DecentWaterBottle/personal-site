@@ -1,5 +1,9 @@
 .project {
-  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 2em;
   margin: 0 auto;
   text-align: center;
   box-shadow: var(--shadow);
@@ -10,8 +14,15 @@
   transform: translateY(-7px);
 }
 
+.project_title {
+  margin-top: 1em;
+}
+
 .project__description {
   margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  flex-grow: 1;
 }
 
 .project__stack {
@@ -23,11 +34,25 @@
 
 .project__stack-item {
   margin: 0.5em;
+  /* margin-left: 0.7em;
+  margin-right: 0.7em; */
   font-weight: 500;
   font-size: 0.8rem;
   color: var(--clr-fg-alt);
 }
 
+.project__links {
+  display: flex;
+  justify-content: center; /* Ensure the icons are next to each other and centered */
+  margin-top: 1em;
+}
+
 .project .link--icon {
   margin-left: 0.5em;
+}
+
+.project img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
