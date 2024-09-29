@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build --cname jack-carter.me",
     "start": "react-scripts start --openssl-legacy-provider",
     "build": "react-scripts build --openssl-legacy-provider",
     "test": "react-scripts test --openssl-legacy-provider",
