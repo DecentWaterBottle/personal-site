@@ -29,7 +29,7 @@
   border-radius: 5px;
 }
 
-.project-detail a {
+/* .project-detail a {
   display: inline-block;
   margin: 1em;
   padding: 0.5em 1em;
@@ -37,9 +37,13 @@
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
-}
+} */
 
-.project-detail button {
+ .project-detail a {
+  color: var(--clr-primary);
+ }
+
+/* .project-detail button {
   display: inline-block;
   margin: 1em;
   padding: 0.5em 1em;
@@ -48,6 +52,23 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+} */
+
+.project-detail button {
+  display: inline-block;
+  margin: 1em;
+  padding: 0.5em 1em;
+  background: transparent; /* Set background to transparent */
+  color: var(--clr-primary); /* Text color to primary */
+  border: 2px solid var(--clr-primary); /* Add a border with primary color */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-detail button:hover {
+  background: var(--clr-primary); /* Add background color on hover */
+  color: #fff; /* Change text color to white on hover */
 }
 
 /* .project-detail button:hover {

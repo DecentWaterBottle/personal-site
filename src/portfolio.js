@@ -4,7 +4,7 @@ import aerialArsenal from './assets/aerial_arsenal_02.png'
 
 const header = {
   // all the properties are optional - can be left empty or deleted
-  homepage: 'https://rjshkhr.github.io/cleanfolio',
+  homepage: 'https://jack-carter.me',
   title: 'JC.',
 }
 
@@ -12,8 +12,8 @@ const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Jack Carter',
   role: 'Backend Developer',
-  description:
-    'I am a backend developer with a passion for creating and maintaining scalable and efficient systems. I have experience with a variety of technologies and am always looking to learn more.',
+  // description:
+  //   'I am a backend developer with a passion for creating and maintaining scalable and efficient systems. I have experience with a variety of technologies and am always looking to learn more.',
   resume: 'https://example.com',
   social: {
     linkedin: 'https://www.linkedin.com/in/jack-carter4/',
@@ -44,13 +44,14 @@ const projects = [
     name: 'Decrypter for Traditional Substitution Ciphers',
     // name: 'Cipher Smasher',
     description: 'Exploring various methods to decrypt traditional substitution ciphers',
-    detailedDescription: `This project is the culmination of my years of education at Munster Technological University, and served as the subject of my final year project. The purpose of this project was to demonstrate what I have learned over the previous years by developing an algorithm to automatically decrypt monoalphabetic substitution ciphers.
+    detailedDescription: `This project is the culmination of my years of education at Munster Technological University, and served as the subject of my final year project. The purpose of this project was to develop an algorithm to automatically decrypt monoalphabetic substitution ciphers.
 
-The project was split into two main sections. The first phase was the exploratory and algorithm-development phase, which involved testing and experimenting with different algorithms and variations of said algorithms to find the most optimal solution. The second phase involved taking the resulting algorithm and implementing it into a web application using Flask.`,
+The project was split into two main sections. The first phase was the exploratory and algorithm-development phase, which involved testing and experimenting with different algorithms and variations of said algorithms to find the most optimal solution. The second phase involved taking the resulting algorithm and implementing it into a web application using Flask.
+<br /> The full thesis can be found: <a href="https://www.academia.edu/104264928/An_Automated_Decrypter_for_Traditional_Substitution_Ciphers" target="_blank" rel="noopener noreferrer">here</a>`,
     thumbnail: thesisImage,
     stack: ['Python', 'Flask', "Javascript", "Tailwind CSS"],
     sourceCode: 'https://github.com/DecentWaterBottle/primitive-cipher-decrypter',
-    livePreview: 'https://user.github.io/project-two',
+    // livePreview: 'https://user.github.io/project-two',
   },
   // Add more projects as needed
 ]
