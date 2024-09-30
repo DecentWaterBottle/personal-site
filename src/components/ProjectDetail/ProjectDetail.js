@@ -15,23 +15,28 @@ const ProjectDetail = () => {
     <div className='project-detail'>
       <h2>{project.name}</h2>
       <img src={project.thumbnail} alt={project.name} />
-      <p className='project-description'>{project.detailedDescription}</p>
+      {/* <p className='project-description'>{project.detailedDescription}</p> */}
+      <div
+      className='project-description'
+      dangerouslySetInnerHTML={{ __html: project.detailedDescription }}
+    />
       <ul>
         {project.stack.map((tech) => (
           <li key={tech}>{tech}</li>
         ))}
       </ul>
+      <button type="button" onClick={() => navigate('/')}>Back to Home</button>
       {project.livePreview && (
-        <a href={project.livePreview} target='_blank' rel='noopener noreferrer'>
+        <button type="button" onClick={() => window.open(project.livePreview)} target='_blank' rel='noopener noreferrer'>
           Live Preview
-        </a>
+        </button>
       )}
       {project.sourceCode && (
-        <a href={project.sourceCode} target='_blank' rel='noopener noreferrer'>
+        <button type="button" onClick={() => window.open(project.sourceCode)} target='_blank' rel='noopener noreferrer'>
           Source Code
-        </a>
+        </button>
       )}
-      <button type="button" onClick={() => navigate('/')}>Back to Home</button>
+      
     </div>
   )
 }
