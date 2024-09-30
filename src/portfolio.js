@@ -1,5 +1,5 @@
 import loominaImage from './assets/loomina_homepage.png';
-import thesisImage from './assets/hill_climbing_decrypyer_logo_2.jpg'
+import thesisImage from './assets/hill_climbing_decrypyer_logo_5.jpg'
 import aerialArsenal from './assets/aerial_arsenal_02.png'
 
 const header = {
@@ -24,7 +24,7 @@ const about = {
 const projects = [
   {
     name: 'Loomina',
-    description: 'A generative AI-based learning platform where users create their own teacher and topics.',
+    description: 'A generative AI-based learning platform where users decide their own teacher and topics.',
     detailedDescription: `Detailed description for Project One.`,
     thumbnail: loominaImage,
     stack: ['Vue.js', 'Koa', 'Typscript', 'API', 'Supabase'],
