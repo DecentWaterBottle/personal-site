@@ -26,33 +26,29 @@ const projects = [
   {
     name: 'Loomina',
     description: 'A generative AI-based learning platform where users decide their own teacher and topics.',
-    detailedDescription: `Detailed description for Project One.`,
+    detailedDescription: `Loomina is a generative AI-based learning platform which gives the user complete freedom to choose whatever they want to learn about, and from whom they wish to learn it. `,
     thumbnail: loominaImage,
     stack: ['Vue.js', 'Koa', 'Typscript', 'API', 'Supabase', "NodeJS"],
-    // sourceCode: 'https://github.com/user/project-one',
     livePreview: 'https://loomina.net',
   },
   {
     name: 'Logitech R&D',
     description: 'Exploring innovative hardware prototypes and user experience solutions',
-    detailedDescription: `This mod adds a plethora of additional weaponry to Minecraft utilizing the Force API. <br />
-    Creating this mod gave me insight into working with already established codebases and how something as complex as a video game is created without a typical game engine.
-    With a focus on modular design, I aimed to test my ability to adapt to a new codebase and create a functional and fun mod.`,
+    detailedDescription: `During my  9-month internship at Logitech where I was a part of the R&D team, I was tasked with developing a variety of prototypes and solutions for various projects. <br />
+    My primary contribution was in the conceptualization and development of prototype solutions, utilizing a variety of technologies including Typescript, React, Three.js, C# and Unity. <br />
+    Despite my position as intern, I was a live and active part of the team and was included in every stage of development, with my contributions being valued and implemented.`,
     thumbnail: logitechLogo,
     stack: ['React', 'Typescript', 'TailwindCSS', 'NodeJS'],
   },
   {
     name: 'Decrypter for Traditional Substitution Ciphers',
-    // name: 'Cipher Smasher',
     description: 'Exploring various methods to decrypt traditional substitution ciphers',
     detailedDescription: `This project is the culmination of my years of education at Munster Technological University, and served as the subject of my final year project. The purpose of this project was to develop an algorithm to automatically decrypt monoalphabetic substitution ciphers.
-
-The project was split into two main sections. The first phase was the exploratory and algorithm-development phase, which involved testing and experimenting with different algorithms and variations of said algorithms to find the most optimal solution. The second phase involved taking the resulting algorithm and implementing it into a web application using Flask.
-<br /> The full thesis can be found: <a href="https://www.academia.edu/104264928/An_Automated_Decrypter_for_Traditional_Substitution_Ciphers" target="_blank" rel="noopener noreferrer">here</a>`,
+    The project was split into two main sections. The first phase was the exploratory and algorithm-development phase, which involved testing and experimenting with different algorithms and variations of said algorithms to find the most optimal solution. The second phase involved taking the resulting algorithm and implementing it into a web application using Flask.
+    <br /> The full thesis can be found: <a href="https://www.academia.edu/104264928/An_Automated_Decrypter_for_Traditional_Substitution_Ciphers" target="_blank" rel="noopener noreferrer">here</a>`,
     thumbnail: thesisImage,
     stack: ['Python', 'Flask', "Javascript", "Tailwind CSS"],
     sourceCode: 'https://github.com/DecentWaterBottle/primitive-cipher-decrypter',
-    // livePreview: 'https://user.github.io/project-two',
   },
   {
     name: 'Aerial Arsenal',
@@ -63,10 +59,8 @@ The project was split into two main sections. The first phase was the explorator
     thumbnail: aerialArsenal,
     stack: ['Java', 'Forge API',],
     sourceCode: 'https://github.com/DecentWaterBottle/AerialArsenal',
-    // livePreview: 'https://user.github.io/project-two',
   },
 
-  // Add more projects as needed
 ]
 
 const skills = [
