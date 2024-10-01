@@ -33,10 +33,16 @@ const App = () => {
 
 const Home = () => (
   <>
-    <About />
-    <Projects />
-    <Skills />
-    <Contact />
+  <About />
+    <section id='projects'>
+      <Projects />
+    </section>
+    <section id='skills'>
+      <Skills />
+    </section>
+    <section id='contact'>
+      <Contact />
+    </section>
   </>
 )
 

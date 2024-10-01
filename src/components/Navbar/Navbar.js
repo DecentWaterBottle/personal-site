@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react'
+import { HashLink as Link } from 'react-router-hash-link'
+import React, { useContext, useState } from 'react'
 import Brightness2Icon from '@material-ui/icons/Brightness2'
 import WbSunnyRoundedIcon from '@material-ui/icons/WbSunnyRounded'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -21,37 +22,40 @@ const Navbar = () => {
       >
         {projects.length ? (
           <li className='nav__list-item'>
-            <a
-              href='#projects'
+            <Link
+              to='/#projects'
+              smooth
               onClick={toggleNavList}
               className='link link--nav'
             >
               Projects
-            </a>
+            </Link>
           </li>
         ) : null}
 
         {skills.length ? (
           <li className='nav__list-item'>
-            <a
-              href='#skills'
+            <Link
+              to='/#skills'
+              smooth
               onClick={toggleNavList}
               className='link link--nav'
             >
               Skills
-            </a>
+            </Link>
           </li>
         ) : null}
 
         {contact.email ? (
           <li className='nav__list-item'>
-            <a
-              href='#contact'
+            <Link
+              to='/#contact'
+              smooth
               onClick={toggleNavList}
               className='link link--nav'
             >
               Contact
-            </a>
+            </Link>
           </li>
         ) : null}
       </ul>
