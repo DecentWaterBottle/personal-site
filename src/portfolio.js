@@ -1,6 +1,7 @@
 import loominaImage from './assets/loomina_homepage.png';
-import thesisImage from './assets/hill_climbing_decrypyer_logo_5.jpg'
-import aerialArsenal from './assets/aerial_arsenal_02.png'
+import thesisImage from './assets/hill_climbing_decrypyer_logo_5.jpg';
+import aerialArsenal from './assets/aerial_arsenal_02.png';
+import logitechLogo from './assets/logitech_banner.png';
 
 const header = {
   // all the properties are optional - can be left empty or deleted
@@ -11,7 +12,7 @@ const header = {
 const about = {
   // all the properties are optional - can be left empty or deleted
   name: 'Jack Carter',
-  role: 'Backend Developer',
+  role: 'Software Engineer | Backend ',
   // description:
   //   'I am a backend developer with a passion for creating and maintaining scalable and efficient systems. I have experience with a variety of technologies and am always looking to learn more.',
   resume: 'https://example.com',
@@ -27,18 +28,18 @@ const projects = [
     description: 'A generative AI-based learning platform where users decide their own teacher and topics.',
     detailedDescription: `Detailed description for Project One.`,
     thumbnail: loominaImage,
-    stack: ['Vue.js', 'Koa', 'Typscript', 'API', 'Supabase'],
+    stack: ['Vue.js', 'Koa', 'Typscript', 'API', 'Supabase', "NodeJS"],
     // sourceCode: 'https://github.com/user/project-one',
     livePreview: 'https://loomina.net',
   },
   {
-    name: 'Aerial Arsenal',
-    description: 'A Minecraft modification that adds a variety of throwable weaponry',
-    detailedDescription: 'Detailed description for Project Two.',
-    thumbnail: aerialArsenal,
-    stack: ['Java', 'Forge API',],
-    sourceCode: 'https://github.com/DecentWaterBottle/AerialArsenal',
-    // livePreview: 'https://user.github.io/project-two',
+    name: 'Logitech R&D',
+    description: 'Exploring innovative hardware prototypes and user experience solutions',
+    detailedDescription: `This mod adds a plethora of additional weaponry to Minecraft utilizing the Force API. <br />
+    Creating this mod gave me insight into working with already established codebases and how something as complex as a video game is created without a typical game engine.
+    With a focus on modular design, I aimed to test my ability to adapt to a new codebase and create a functional and fun mod.`,
+    thumbnail: logitechLogo,
+    stack: ['React', 'Typescript', 'TailwindCSS', 'NodeJS'],
   },
   {
     name: 'Decrypter for Traditional Substitution Ciphers',
@@ -53,6 +54,18 @@ The project was split into two main sections. The first phase was the explorator
     sourceCode: 'https://github.com/DecentWaterBottle/primitive-cipher-decrypter',
     // livePreview: 'https://user.github.io/project-two',
   },
+  {
+    name: 'Aerial Arsenal',
+    description: 'A Minecraft modification that adds a variety of throwable weaponry',
+    detailedDescription: `This mod adds a plethora of additional weaponry to Minecraft utilizing the Force API. <br />
+    Creating this mod gave me insight into working with already established codebases and how something as complex as a video game is created without a typical game engine.
+    With a focus on modular design, I aimed to test my ability to adapt to a new codebase and create a functional and fun mod.`,
+    thumbnail: aerialArsenal,
+    stack: ['Java', 'Forge API',],
+    sourceCode: 'https://github.com/DecentWaterBottle/AerialArsenal',
+    // livePreview: 'https://user.github.io/project-two',
+  },
+
   // Add more projects as needed
 ]
 
