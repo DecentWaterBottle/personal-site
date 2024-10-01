@@ -15,7 +15,7 @@ const about = {
   role: 'Software Engineer | Backend ',
   // description:
   //   'I am a backend developer with a passion for creating and maintaining scalable and efficient systems. I have experience with a variety of technologies and am always looking to learn more.',
-  resume: 'https://example.com',
+  resume: '/jack_carter_resume.pdf',
   social: {
     linkedin: 'https://www.linkedin.com/in/jack-carter4/',
     github: 'https://github.com/DecentWaterBottle',
