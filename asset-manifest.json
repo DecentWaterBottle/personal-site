@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.a3abe4c6.chunk.css",
-    "main.js": "/static/js/main.49ec8206.chunk.js",
-    "main.js.map": "/static/js/main.49ec8206.chunk.js.map",
+    "main.js": "/static/js/main.26adbef1.chunk.js",
+    "main.js.map": "/static/js/main.26adbef1.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5cd74d87.js",
     "runtime-main.js.map": "/static/js/runtime-main.5cd74d87.js.map",
     "static/js/2.e4e9c870.chunk.js": "/static/js/2.e4e9c870.chunk.js",
@@ -12,13 +12,13 @@
     "static/js/2.e4e9c870.chunk.js.LICENSE.txt": "/static/js/2.e4e9c870.chunk.js.LICENSE.txt",
     "static/media/aerial_arsenal_02.13f23383.png": "/static/media/aerial_arsenal_02.13f23383.png",
     "static/media/hill_climbing_decrypyer_logo_5.dc2bee14.jpg": "/static/media/hill_climbing_decrypyer_logo_5.dc2bee14.jpg",
-    "static/media/logitech_banner.15dd9e00.png": "/static/media/logitech_banner.15dd9e00.png",
+    "static/media/logitech_banner_bg.33186920.png": "/static/media/logitech_banner_bg.33186920.png",
     "static/media/loomina_homepage.0426acb3.png": "/static/media/loomina_homepage.0426acb3.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5cd74d87.js",
     "static/js/2.e4e9c870.chunk.js",
     "static/css/main.a3abe4c6.chunk.css",
-    "static/js/main.49ec8206.chunk.js"
+    "static/js/main.26adbef1.chunk.js"
   ]
 }
