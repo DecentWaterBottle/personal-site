@@ -1,7 +1,7 @@
 import loominaImage from './assets/loomina_homepage.png';
 import thesisImage from './assets/hill_climbing_decrypyer_logo_5.jpg';
 import aerialArsenal from './assets/aerial_arsenal_02.png';
-import logitechLogo from './assets/logitech_banner.png';
+import logitechLogo from './assets/logitech_banner_bg.png';
 
 const header = {
   // all the properties are optional - can be left empty or deleted
@@ -26,7 +26,9 @@ const projects = [
   {
     name: 'Loomina',
     description: 'A generative AI-based learning platform where users decide their own teacher and topics.',
-    detailedDescription: `Loomina is a generative AI-based learning platform which gives the user complete freedom to choose whatever they want to learn about, and from whom they wish to learn it. `,
+    detailedDescription: `Loomina is a generative AI-based learning platform which gives the user complete freedom to choose whatever they want to learn about, and from whom they wish to learn it. <br />
+    At Loomina I was responsible for the development of the backend API, utilizing Typescript with Koa and Supabase to create a scalable and efficient system. This included working with OpenAI's gpt-4o API and Prodia's image generation API. 
+    I also contributed to the frontend, utilizing Vue.js to implement several key features, such as live chat and OAuth 2.0 for Google login. <br />`,
     thumbnail: loominaImage,
     stack: ['Vue.js', 'Koa', 'Typscript', 'API', 'Supabase', "NodeJS"],
     livePreview: 'https://loomina.net',
