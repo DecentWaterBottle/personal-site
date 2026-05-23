@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro'
+import { getCollection } from 'astro:content'
+const portfolio = (await getCollection('portfolio')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+---
+<Base title="Portfolio — Jack Carter">
+  <section>
+    <p class="section-label">Portfolio</p>
+    {portfolio.map(p => (
+      <a href={`/portfolio/${p.id}`} style="text-decoration:none; display:block;">
+        <div class="card">
+          {p.data.thumb && <img class="card-thumb" src={p.data.thumb} alt={p.data.title} />}
+          <div class="card-body">
+            <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:4px;">
+              <p class="card-title" style="margin:0;">{p.data.title}</p>
+              <span class={`type-badge ${p.data.type}`}>{p.data.type}</span>
+            </div>
+            <p class="card-desc">{p.data.description}</p>
+            {p.data.tags && <div class="tags">{p.data.tags.map((t: string) => <span class="tag">{t}</span>)}</div>}
+          </div>
+        </div>
+      </a>
+    ))}
+  </section>
+</Base>

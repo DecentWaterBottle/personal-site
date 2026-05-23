@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const portfolio = await getCollection('portfolio')
+  return portfolio.map(p => ({ params: { slug: p.id }, props: { item: p } }))
+}
+
+const { item } = Astro.props
+const { Content } = await render(item)
+---
+<Base title={`${item.data.title} — Jack Carter`}>
+  <div class="detail-header">
+    <a href="/#portfolio" class="back-link">← portfolio</a>
+    <div style="display:flex; align-items:baseline; gap:0.75rem; margin-top:1rem;">
+      <h1>{item.data.title}</h1>
+      <span class={`type-badge ${item.data.type}`}>{item.data.type}</span>
+    </div>
+    {item.data.tags && (
+      <div class="tags" style="margin-top:0.75rem;">
+        {item.data.tags.map((t: string) => <span class="tag">{t}</span>)}
+      </div>
+    )}
+    {item.data.link && (
+      <a href={item.data.link} target="_blank" class="more-link" style="margin-top:0.75rem;">
+        View project ↗
+      </a>
+    )}
+  </div>
+  {item.data.thumb && (
+    <img src={item.data.thumb} alt="" style="width:100%; border-radius:6px; border:1px solid var(--border); margin-bottom:2rem;" />
+  )}
+  <div class="prose"><Content /></div>
+</Base>

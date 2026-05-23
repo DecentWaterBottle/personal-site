@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro'
+import { getCollection } from 'astro:content'
+
+const portfolio = (await getCollection('portfolio'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+
+const experience = (await getCollection('experience'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3)
+---
+<Base title="Jack Carter">
+
+  <section>
+    <h1>Jack Carter</h1>
+    <p style="font-size:15px; color:var(--text-secondary); margin-top:0.4rem; max-width:520px;">
+      Software developer based in Germany. Building critical infrastructure by day, indie games by night.
+    </p>
+    <div class="links">
+      <a href="https://github.com/DecentWaterBottle" target="_blank">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/jack-carter4" target="_blank">LinkedIn ↗</a>
+      <a href="https://x.com/JEdwardCarter" target="_blank">X ↗</a>
+      <a href="/jack_carter_resume.pdf" target="_blank">Resume ↗</a>
+      <a href="mailto:jack.carter334@gmail.com">Email ↗</a>
+    </div>
+  </section>
+
+  <hr />
+
+  <section id="portfolio">
+    <p class="section-label">Portfolio</p>
+    {portfolio.map(p => (
+      <a href={`/portfolio/${p.id}`} style="text-decoration:none; display:block;">
+        <div class="card">
+          {p.data.thumb && <img class="card-thumb" src={p.data.thumb} alt={p.data.title} />}
+          <div class="card-body">
+            <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:4px;">
+              <p class="card-title" style="margin:0;">{p.data.title}</p>
+              <span class={`type-badge ${p.data.type}`}>{p.data.type}</span>
+            </div>
+            <p class="card-desc">{p.data.description}</p>
+            {p.data.tags && (
+              <div class="tags">
+                {p.data.tags.map((t: string) => <span class="tag">{t}</span>)}
+              </div>
+            )}
+          </div>
+        </div>
+      </a>
+    ))}
+  </section>
+
+  <hr />
+
+  <section id="experience">
+    <p class="section-label">Professional Employment</p>
+    {experience.map(job => (
+      <div class="exp-row">
+        <div class="exp-dates">{job.data.start} – {job.data.end ?? 'present'}</div>
+        <div>
+          <p class="exp-title">{job.data.role}</p>
+          <p class="exp-company">{job.data.company}</p>
+          <p class="exp-desc">{job.data.description}</p>
+          {job.data.tags && (
+            <div class="tags" style="margin-top:8px;">
+              {job.data.tags.map((t: string) => <span class="tag">{t}</span>)}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <hr />
+
+  <section>
+    <p class="section-label">Devblog</p>
+    {posts.map(post => (
+      <a href={`/blog/${post.id}`} class="blog-row">
+        {post.data.thumb && (
+          <div class="blog-thumb-wrap">
+            <img class="blog-thumb" src={post.data.thumb} alt="" />
+          </div>
+        )}
+        <div style="flex:1;">
+          <p class="blog-title">{post.data.title}</p>
+          <p class="blog-date">{post.data.date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}</p>
+        </div>
+      </a>
+    ))}
+    <a href="/blog" class="more-link">All posts →</a>
+  </section>
+
+</Base>

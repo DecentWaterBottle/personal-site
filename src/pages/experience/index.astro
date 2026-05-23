@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro'
+import { getCollection } from 'astro:content'
+const jobs = (await getCollection('experience')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+---
+<Base title="Professional Employment — Jack Carter">
+  <section>
+    <p class="section-label">Professional Employment</p>
+    {jobs.map(job => (
+      <div class="exp-row">
+        <div class="exp-dates">{job.data.start} – {job.data.end ?? 'present'}</div>
+        <div>
+          <p class="exp-title">{job.data.role}</p>
+          <p class="exp-company">{job.data.company}</p>
+          <p class="exp-desc">{job.data.description}</p>
+          {job.data.tags && <div class="tags" style="margin-top:8px;">{job.data.tags.map((t) => <span class="tag">{t}</span>)}</div>}
+        </div>
+      </div>
+    ))}
+  </section>
+</Base>
