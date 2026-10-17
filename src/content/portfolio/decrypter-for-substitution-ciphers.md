@@ -1,6 +1,6 @@
 ---
 title: "Automated Decrypter for Traditional Substitution Ciphers"
-description: "Bachelor Thesis work, the purpose of which was to develop an algorithm to automatically decrypt monoalphabetic substitution ciphers."
+description: "My Bachelor thesis, nominated for best final year project: an algorithm that automatically cracks monoalphabetic substitution ciphers."
 type: academic
 tags: ["codes", "monoalphabetic", "hill-climbing algorithm"]
 link: "https://github.com/DecentWaterBottle/primitive-cipher-decrypter"

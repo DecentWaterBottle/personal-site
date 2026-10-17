@@ -16,6 +16,7 @@ const { Content } = await render(item)
     <h1 style="margin-top:1rem;">
       {item.data.title} <span class={`type-badge ${item.data.type}`}>{item.data.type}</span>
     </h1>
+    {item.data.highlight && <p class="highlight" style="margin-top:0.5rem;">★ {item.data.highlight}</p>}
     {item.data.tags && (
       <div class="tags" style="margin-top:0.75rem;">
         {item.data.tags.map((t: string) => <span class="tag">{t}</span>)}

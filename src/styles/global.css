@@ -128,6 +128,18 @@ nav a:hover {
   border-color: var(--text-secondary);
 }
 
+/* Small screens: name + theme toggle on the first row, links wrap onto the next */
+@media (max-width: 600px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 0.6rem 1.1rem;
+    margin-bottom: 2.25rem;
+  }
+  .wordmark { flex: 1 0 70%; }
+  .theme-toggle { order: 1; }
+  nav a:not(.wordmark) { order: 2; }
+}
+
 /* Hero */
 .hero {
   display: flex;
@@ -161,10 +173,11 @@ nav a:hover {
 }
 
 .now {
-  display: flex;
+  /* dot | label | text — text wraps under itself, not under the label */
+  display: grid;
+  grid-template-columns: 7px 2.6rem 1fr;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  column-gap: 0.5rem;
   margin-top: 1.25rem;
   font-size: var(--fs-md);
   color: var(--text-secondary);
@@ -184,7 +197,8 @@ nav a:hover {
   height: 7px;
   border-radius: 50%;
   background: #4caf50;
-  align-self: center;
+  align-self: start;
+  margin-top: 0.55em;
   animation: pulse 2.4s ease-in-out infinite;
 }
 
@@ -274,6 +288,15 @@ nav a:hover {
   font-size: var(--fs-xs);
   color: var(--text-tertiary);
   margin-bottom: 6px;
+}
+
+/* Awards / distinctions on projects */
+.highlight {
+  font-family: 'Courier New', monospace;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
 }
 
 .card-desc {

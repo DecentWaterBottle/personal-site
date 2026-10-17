@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'Jack Carter is a software developer based in Germany, building critical energy infrastructure software and indie games.',
+  description = 'Jack Carter is a software engineer based in Germany, building critical energy infrastructure software and indie games.',
   image = '/og-image.png',
 } = Astro.props
 
@@ -79,7 +79,16 @@ const imageUrl = new URL(image, Astro.site)
         }
       }
     }, { threshold: 0.1 })
-    document.querySelectorAll('body > section').forEach((el) => revealObserver.observe(el))
+    // Sections already on screen show straight away; only the ones further down fade in on scroll.
+    // (Never leave visible content waiting on the observer, e.g. in background tabs.)
+    document.querySelectorAll('body > section').forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.style.transition = 'none'
+        el.classList.add('is-visible')
+      } else {
+        revealObserver.observe(el)
+      }
+    })
 
     toggle.addEventListener('click', () => {
       const isDark = html.getAttribute('data-theme') === 'dark'

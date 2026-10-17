@@ -11,6 +11,7 @@ const portfolio = defineCollection({
     thumb: z.string().optional(),
     order: z.number().optional(),
     link: z.string().optional(),
+    highlight: z.string().optional(),
   }),
 })
 
