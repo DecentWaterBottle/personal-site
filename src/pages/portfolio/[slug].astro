@@ -9,8 +9,11 @@ export async function getStaticPaths() {
 
 const { item } = Astro.props
 const { Content } = await render(item)
+
+// SVG thumbs are small card illustrations, not screenshots: skip the banner and link-preview image
+const banner = item.data.thumb && !item.data.thumb.endsWith('.svg') ? item.data.thumb : undefined
 ---
-<Base title={`${item.data.title} — Jack Carter`} description={item.data.description} image={item.data.thumb}>
+<Base title={`${item.data.title} — Jack Carter`} description={item.data.description} image={banner}>
   <div class="detail-header">
     <a href="/#portfolio" class="back-link">← portfolio</a>
     <h1 style="margin-top:1rem;">
@@ -28,8 +31,8 @@ const { Content } = await render(item)
       </a>
     )}
   </div>
-  {item.data.thumb && (
-    <img src={item.data.thumb} alt="" style="width:100%; border-radius:6px; border:1px solid var(--border); margin-bottom:2rem;" />
+  {banner && (
+    <img src={banner} alt="" style="width:100%; border-radius:6px; border:1px solid var(--border); margin-bottom:2rem;" />
   )}
   <div class="prose"><Content /></div>
 </Base>

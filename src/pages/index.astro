@@ -60,7 +60,7 @@ const posts = (await getCollection('blog'))
       <a href={`/portfolio/${p.id}`} style="text-decoration:none; display:block;">
         <div class="card">
           {p.data.thumb
-            ? <img class="card-thumb" src={p.data.thumb} alt={p.data.title} />
+            ? <img class={`card-thumb${p.data.thumb.endsWith('.svg') ? ' card-thumb-illustration' : ''}`} src={p.data.thumb} alt={p.data.title} />
             : <div class="card-thumb card-thumb-placeholder" aria-hidden="true">{p.data.title.charAt(0)}</div>}
           <div class="card-body">
             <p class="card-title">
@@ -82,7 +82,7 @@ const posts = (await getCollection('blog'))
   <hr />
 
   <section id="experience">
-    <p class="section-label">Professional Employment</p>
+    <p class="section-label">Where I&apos;ve built</p>
     {experience.map(job => (
       <div class="exp-row">
         <div class="exp-dates">{job.data.start} – {job.data.end ?? 'present'}</div>

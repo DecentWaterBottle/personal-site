@@ -1,5 +1,5 @@
 ---
-role: "Software Development Intern"
+role: "Software Engineer Intern"
 company: "Logitech"
 start: "Jan 2022"
 end: "Sept 2022"

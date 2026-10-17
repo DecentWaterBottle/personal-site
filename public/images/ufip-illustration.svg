@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#8c8c8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Electricity: transmission pylon -->
+  <g>
+    <path d="M36 168 L52 52 L68 168" />
+    <path d="M32 78 H72" />
+    <path d="M38 102 H66" />
+    <path d="M45 126 L61 102 M59 126 L43 102" />
+    <path d="M42 150 L62 126 M62 150 L42 126" />
+    <path d="M32 78 v8 M72 78 v8" />
+  </g>
+
+  <!-- Gas: pipeline with valve -->
+  <g>
+    <path d="M118 150 H182 M118 162 H182" />
+    <path d="M118 150 v12 M182 150 v12" />
+    <path d="M150 150 V124" />
+    <circle cx="150" cy="110" r="14" />
+    <path d="M150 96 V124 M136 110 H164" />
+  </g>
+
+  <!-- Coordination: data link between the two networks -->
+  <g stroke-width="2.5">
+    <path d="M72 86 C 88 86, 88 62, 100 62" stroke-dasharray="1 7" />
+    <path d="M100 62 C 116 62, 120 96, 136 104" stroke-dasharray="1 7" />
+  </g>
+  <circle cx="100" cy="62" r="7" fill="#8c8c8c" stroke="none" />
+  <circle cx="100" cy="62" r="13" stroke-width="2" opacity="0.5" />
+</svg>

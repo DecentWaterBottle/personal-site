@@ -4,6 +4,7 @@ description: "Cross-sector IT platform enabling real-time coordination between G
 type: professional
 tags: ["Java", "Jakarta EE", "PrimeFaces", "Hibernate", "Oracle DB"]
 order: 1
+thumb: /images/ufip-illustration.svg
 ---
 
 ÜFIP (ÜNB-FNB-IT-Plattform) is a critical infrastructure platform jointly developed by 

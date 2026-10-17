@@ -263,6 +263,12 @@ nav a:hover {
   border-right: 1px solid var(--border);
 }
 
+.card-thumb-illustration {
+  object-fit: contain;
+  padding: 0.5rem;
+  background: var(--bg);
+}
+
 .card-thumb-placeholder {
   display: flex;
   align-items: center;
@@ -273,8 +279,21 @@ nav a:hover {
   background: var(--bg);
 }
 
-@media (max-width: 480px) {
-  .card-thumb { flex-basis: 4rem; width: 4rem; }
+/* Small screens: stack the card, thumbnail becomes a short banner across the top */
+@media (max-width: 600px) {
+  .card { flex-direction: column; }
+  /* Real images keep their own shape, so nothing gets cropped */
+  .card-thumb {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  /* Illustrations and letter tiles have no natural shape: give them a short banner */
+  .card-thumb-illustration,
+  .card-thumb-placeholder { height: 7.5rem; }
+  .card-thumb-placeholder { font-size: var(--fs-lg); }
 }
 
 .card-title {
