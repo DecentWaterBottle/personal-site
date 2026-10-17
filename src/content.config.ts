@@ -24,6 +24,20 @@ const experience = defineCollection({
     description: z.string(),
     tags: z.array(z.string()).optional(),
     order: z.number().optional(),
+    logo: z.string().optional(),
+  }),
+})
+
+const volunteering = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/volunteering' }),
+  schema: z.object({
+    organisation: z.string(),
+    role: z.string(),
+    start: z.string().optional(),
+    end: z.string().optional(),
+    description: z.string(),
+    logo: z.string().optional(),
+    order: z.number().optional(),
   }),
 })
 
@@ -37,4 +51,4 @@ const blog = defineCollection({
   }),
 })
 
-export const collections = { portfolio, experience, blog }
+export const collections = { portfolio, experience, volunteering, blog }

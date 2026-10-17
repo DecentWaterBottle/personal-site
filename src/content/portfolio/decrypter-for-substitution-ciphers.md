@@ -5,6 +5,7 @@ type: academic
 tags: ["codes", "monoalphabetic", "hill-climbing algorithm"]
 link: "https://github.com/DecentWaterBottle/primitive-cipher-decrypter"
 order: 3
+thumb: /images/hill_climbing_decrypter_logo.jpg
 ---
 
 This project is the culmination of my years of education at Munster Technological University, and served as the subject of my final year project. The purpose of this project was to develop an algorithm to automatically decrypt monoalphabetic substitution ciphers. The project was split into two main sections. The first phase was the exploratory and algorithm-development phase, which involved testing and experimenting with different algorithms and variations of said algorithms to find the most optimal solution. The second phase involved taking the resulting algorithm and implementing it into a web application using Flask.

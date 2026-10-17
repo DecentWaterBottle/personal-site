@@ -1,11 +1,18 @@
 ---
 import Base from '../layouts/Base.astro'
 import { getCollection } from 'astro:content'
+import { existsSync } from 'node:fs'
+
+// Drop a square photo at public/images/avatar.jpg to replace the monogram
+const hasAvatar = existsSync('public/images/avatar.jpg')
 
 const portfolio = (await getCollection('portfolio'))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
 
 const experience = (await getCollection('experience'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+
+const volunteering = (await getCollection('volunteering'))
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
 
 const posts = (await getCollection('blog'))
@@ -15,9 +22,26 @@ const posts = (await getCollection('blog'))
 <Base title="Jack Carter">
 
   <section>
-    <h1>Jack Carter</h1>
-    <p style="font-size: 0.9375rem; color:var(--text-secondary); margin-top:0.4rem; max-width:520px;">
-      Software developer based in Germany. Building critical infrastructure and indie games.
+    <div class="hero">
+      {hasAvatar
+        ? <img class="avatar" src="/images/avatar.jpg" alt="Jack Carter" />
+        : <div class="avatar avatar-monogram" aria-hidden="true">JC</div>}
+      <div>
+        <h1>Jack Carter</h1>
+        <p class="hero-intro">
+          Software developer based in Germany. Building critical infrastructure and indie games.
+        </p>
+      </div>
+    </div>
+    <p class="now">
+      <span class="now-dot" aria-hidden="true"></span>
+      <span class="now-label">Now</span>
+      Full-stack software engineer at Amprion.
+    </p>
+    <p class="now now-also">
+      <span class="now-dot" aria-hidden="true"></span>
+      <span class="now-label">Also</span>
+      Speaks English and German (professional) · Plays piano
     </p>
     <div class="links">
       <a href="https://github.com/DecentWaterBottle" target="_blank">GitHub ↗</a>
@@ -35,12 +59,13 @@ const posts = (await getCollection('blog'))
     {portfolio.map(p => (
       <a href={`/portfolio/${p.id}`} style="text-decoration:none; display:block;">
         <div class="card">
-          {p.data.thumb && <img class="card-thumb" src={p.data.thumb} alt={p.data.title} />}
+          {p.data.thumb
+            ? <img class="card-thumb" src={p.data.thumb} alt={p.data.title} />
+            : <div class="card-thumb card-thumb-placeholder" aria-hidden="true">{p.data.title.charAt(0)}</div>}
           <div class="card-body">
-            <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:4px;">
-              <p class="card-title" style="margin:0;">{p.data.title}</p>
-              <span class={`type-badge ${p.data.type}`}>{p.data.type}</span>
-            </div>
+            <p class="card-title">
+              {p.data.title} <span class={`type-badge ${p.data.type}`}>{p.data.type}</span>
+            </p>
             <p class="card-desc">{p.data.description}</p>
             {p.data.tags && (
               <div class="tags">
@@ -61,8 +86,13 @@ const posts = (await getCollection('blog'))
       <div class="exp-row">
         <div class="exp-dates">{job.data.start} – {job.data.end ?? 'present'}</div>
         <div>
-          <p class="exp-title">{job.data.role}</p>
-          <p class="exp-company">{job.data.company}</p>
+          <div class="exp-head">
+            {job.data.logo && <span class="exp-logo"><img src={job.data.logo} alt="" /></span>}
+            <div>
+              <p class="exp-title">{job.data.company}</p>
+              <p class="exp-role">{job.data.role}</p>
+            </div>
+          </div>
           <p class="exp-desc">{job.data.description}</p>
           {job.data.tags && (
             <div class="tags" style="margin-top:8px;">
@@ -72,6 +102,26 @@ const posts = (await getCollection('blog'))
         </div>
       </div>
     ))}
+    {volunteering.length > 0 && (
+      <>
+        <p class="section-label section-label-sub">Volunteering</p>
+        {volunteering.map(v => (
+          <div class="exp-row">
+            <div class="exp-dates">{v.data.start && <>{v.data.start} – {v.data.end ?? 'present'}</>}</div>
+            <div>
+              <div class="exp-head">
+                {v.data.logo && <span class="exp-logo"><img src={v.data.logo} alt="" /></span>}
+                <div>
+                  <p class="exp-title">{v.data.organisation}</p>
+                  <p class="exp-role">{v.data.role}</p>
+                </div>
+              </div>
+              <p class="exp-desc">{v.data.description}</p>
+            </div>
+          </div>
+        ))}
+      </>
+    )}
   </section>
 
   <hr />

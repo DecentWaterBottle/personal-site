@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro'
 import { getCollection } from 'astro:content'
+const volunteering = (await getCollection('volunteering'))
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
 const jobs = (await getCollection('experience')).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
 ---
 <Base title="Professional Employment — Jack Carter">
@@ -10,12 +12,37 @@ const jobs = (await getCollection('experience')).sort((a, b) => (a.data.order ??
       <div class="exp-row">
         <div class="exp-dates">{job.data.start} – {job.data.end ?? 'present'}</div>
         <div>
-          <p class="exp-title">{job.data.role}</p>
-          <p class="exp-company">{job.data.company}</p>
+          <div class="exp-head">
+            {job.data.logo && <span class="exp-logo"><img src={job.data.logo} alt="" /></span>}
+            <div>
+              <p class="exp-title">{job.data.company}</p>
+              <p class="exp-role">{job.data.role}</p>
+            </div>
+          </div>
           <p class="exp-desc">{job.data.description}</p>
           {job.data.tags && <div class="tags" style="margin-top:8px;">{job.data.tags.map((t) => <span class="tag">{t}</span>)}</div>}
         </div>
       </div>
     ))}
+    {volunteering.length > 0 && (
+      <>
+        <p class="section-label section-label-sub">Volunteering</p>
+        {volunteering.map(v => (
+          <div class="exp-row">
+            <div class="exp-dates">{v.data.start && <>{v.data.start} – {v.data.end ?? 'present'}</>}</div>
+            <div>
+              <div class="exp-head">
+                {v.data.logo && <span class="exp-logo"><img src={v.data.logo} alt="" /></span>}
+                <div>
+                  <p class="exp-title">{v.data.organisation}</p>
+                  <p class="exp-role">{v.data.role}</p>
+                </div>
+              </div>
+              <p class="exp-desc">{v.data.description}</p>
+            </div>
+          </div>
+        ))}
+      </>
+    )}
   </section>
 </Base>

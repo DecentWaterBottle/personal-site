@@ -7,28 +7,44 @@
   --border: #ddd;
   --bg: #fff;
   --bg-card: #fafafa;
+  --dot: #e4e4e4;
+
+  /* Type scale */
+  --fs-xs: 0.6875rem;   /* tags, badges, dates */
+  --fs-sm: 0.75rem;     /* nav, links, labels */
+  --fs-md: 0.8125rem;   /* descriptions, code */
+  --fs-base: 0.875rem;  /* body text, titles */
+  --fs-lg: 1.25rem;     /* h2 */
+  --fs-xl: 2rem;        /* h1 */
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --text-primary: #d4d4d4;
   --text-secondary: #aaa;
   --text-tertiary: #555;
   --border: #2a2a2a;
   --bg: #0f0f0f;
   --bg-card: #161616;
+  --dot: #1f1f1f;
 }
 
-html { font-size: 19px; }
+html {
+  font-size: 19px;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+  transition: background-color 0.2s;
+}
 
 body {
-  font-family: Georgia, 'Times New Roman', serif;
-  background: var(--bg);
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
   color: var(--text-primary);
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
   line-height: 1.6;
-  transition: background 0.2s, color 0.2s;
+  transition: color 0.2s;
 }
 
 a { color: inherit; }
@@ -39,8 +55,13 @@ hr {
   margin: 2rem 0;
 }
 
-h1 { font-size: 2rem; font-weight: 400; letter-spacing: -0.01em; }
-h2 { font-size: 1.25rem; font-weight: 400; }
+h1, h2 {
+  /* Newsreader's display optical size: tighter, crisper letterforms for big text */
+  font-variation-settings: "opsz" 72;
+}
+
+h1 { font-size: var(--fs-xl); font-weight: 400; letter-spacing: -0.02em; }
+h2 { font-size: var(--fs-lg); font-weight: 400; }
 
 .mono {
   font-family: 'Courier New', monospace;
@@ -48,12 +69,15 @@ h2 { font-size: 1.25rem; font-weight: 400; }
 
 .section-label {
   font-family: 'Courier New', monospace;
-  font-size: 0.625rem;
+  font-size: var(--fs-sm);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
+
+.section-label-sub { margin-top: 2rem; }
 
 /* Nav */
 nav {
@@ -65,7 +89,7 @@ nav {
 
 .wordmark {
   font-family: 'Courier New', monospace;
-  font-size: 0.8125rem;
+  font-size: var(--fs-md);
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
@@ -74,7 +98,7 @@ nav {
 
 nav a {
   font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -93,7 +117,7 @@ nav a:hover {
   border-radius: 4px;
   padding: 3px 8px;
   font-family: 'Courier New', monospace;
-  font-size: 0.6875rem;
+  font-size: var(--fs-xs);
   color: var(--text-secondary);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
@@ -102,6 +126,79 @@ nav a:hover {
 .theme-toggle:hover {
   color: var(--text-primary);
   border-color: var(--text-secondary);
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar {
+  flex: 0 0 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.avatar-monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  font-size: var(--fs-lg);
+  color: var(--text-secondary);
+}
+
+.hero-intro {
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+  max-width: 520px;
+}
+
+.now {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  font-size: var(--fs-md);
+  color: var(--text-secondary);
+}
+
+.now-label {
+  font-family: 'Courier New', monospace;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+}
+
+.now-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4caf50;
+  align-self: center;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+/* Second row lines up with "Now", but without the live dot */
+.now-also { margin-top: 0.35rem; }
+.now-also .now-dot { visibility: hidden; animation: none; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+@media (max-width: 480px) {
+  .avatar { flex-basis: 3.5rem; width: 3.5rem; height: 3.5rem; }
 }
 
 /* Hero links */
@@ -114,12 +211,12 @@ nav a:hover {
 
 .links a {
   font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
+  font-size: var(--fs-sm);
   color: var(--text-primary);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
   padding-bottom: 1px;
-  transition: border-color 0.15s;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .links a:hover { border-bottom-color: var(--text-primary); }
@@ -131,36 +228,56 @@ nav a:hover {
   background: var(--bg-card);
   margin-bottom: 0.75rem;
   overflow: hidden;
-  transition: border-color 0.15s;
+  display: flex;
+  align-items: stretch;
+  transition: border-color 0.15s, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover { border-color: var(--text-tertiary); }
+.card:hover {
+  border-color: var(--text-tertiary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
 
-.card-body { padding: 1rem 1.25rem; }
+.card-body { padding: 1rem 1.25rem; flex: 1; min-width: 0; }
 
 .card-thumb {
-  width: 100%;
-  height: 160px;
+  flex: 0 0 6rem;
+  width: 6rem;
   object-fit: cover;
   display: block;
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.card-thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+  font-size: var(--fs-xl);
+  color: var(--text-tertiary);
+  background: var(--bg);
+}
+
+@media (max-width: 480px) {
+  .card-thumb { flex-basis: 4rem; width: 4rem; }
 }
 
 .card-title {
-  font-size: 0.9375rem;
+  font-size: var(--fs-base);
   font-weight: 700;
   margin-bottom: 4px;
 }
 
 .card-meta {
   font-family: 'Courier New', monospace;
-  font-size: 0.6875rem;
+  font-size: var(--fs-xs);
   color: var(--text-tertiary);
   margin-bottom: 6px;
 }
 
 .card-desc {
-  font-size: 0.8125rem;
+  font-size: var(--fs-md);
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -174,7 +291,7 @@ nav a:hover {
 
 .tag {
   font-family: 'Courier New', monospace;
-  font-size: 0.625rem;
+  font-size: var(--fs-xs);
   color: var(--text-secondary);
   border: 1px solid var(--border);
   padding: 2px 8px;
@@ -193,15 +310,56 @@ nav a:hover {
 
 .exp-dates {
   font-family: 'Courier New', monospace;
-  font-size: 0.6875rem;
+  font-size: var(--fs-xs);
   color: var(--text-tertiary);
-  min-width: 80px;
+  width: 5.5rem;
+  flex-shrink: 0;
   padding-top: 2px;
 }
 
-.exp-title { font-size: 0.875rem; font-weight: 700; margin-bottom: 2px; }
-.exp-company { font-size: 0.8125rem; color: var(--text-secondary); margin-bottom: 4px; }
-.exp-desc { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.5; }
+.exp-title { font-size: var(--fs-base); font-weight: 700; margin-bottom: 2px; }
+/* Job header: optional company logo tile next to company + role.
+   Logo is greyscale by default and shows its real colours when the row is hovered. */
+.exp-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 6px;
+}
+
+.exp-head .exp-role { margin-bottom: 0; }
+
+.exp-logo {
+  flex: 0 0 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.exp-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.exp-row:hover .exp-logo img { filter: none; opacity: 1; }
+
+.exp-role {
+  font-family: 'Courier New', monospace;
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.exp-desc { font-size: var(--fs-md); color: var(--text-secondary); line-height: 1.5; }
 
 /* Blog rows */
 .blog-row {
@@ -234,10 +392,10 @@ nav a:hover {
   display: block;
 }
 
-.blog-title { font-size: 0.875rem; line-height: 1.4; }
+.blog-title { font-size: var(--fs-base); line-height: 1.4; }
 .blog-date {
   font-family: 'Courier New', monospace;
-  font-size: 0.6875rem;
+  font-size: var(--fs-xs);
   color: var(--text-tertiary);
   white-space: nowrap;
   margin-top: 4px;
@@ -248,14 +406,14 @@ nav a:hover {
 .detail-header h1 { margin-bottom: 0.5rem; }
 .back-link {
   font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   text-decoration: none;
   border-bottom: 1px solid var(--border);
 }
 .back-link:hover { color: var(--text-primary); }
 
-.prose { font-size: 0.875rem; line-height: 1.8; }
+.prose { font-size: var(--fs-base); line-height: 1.8; }
 .prose p { margin-bottom: 1.25rem; }
 .prose h2 { margin: 2rem 0 0.75rem; }
 .prose img { width: 100%; border-radius: 6px; border: 1px solid var(--border); margin: 1.5rem 0; }
@@ -263,7 +421,7 @@ nav a:hover {
 .prose a:hover { border-bottom-color: var(--text-primary); }
 .prose code {
   font-family: 'Courier New', monospace;
-  font-size: 0.8125rem;
+  font-size: var(--fs-md);
   background: var(--bg-card);
   border: 1px solid var(--border);
   padding: 1px 5px;
@@ -283,22 +441,21 @@ section { margin-bottom: 2.5rem; }
 
 .type-badge {
   font-family: 'Courier New', monospace;
-  font-size: 0.625rem;
+  font-size: var(--fs-xs);
   padding: 2px 7px;
   border-radius: 3px;
-  border: 1px solid var(--border);
-  color: var(--text-tertiary);
+  border: 1px solid var(--text-secondary);
+  color: var(--text-primary);
   white-space: nowrap;
-}
-
-.type-badge.professional {
-  color: var(--text-secondary);
-  border-color: var(--text-tertiary);
+  font-weight: 400;
+  letter-spacing: 0;
+  vertical-align: middle;
+  margin-left: 0.25rem;
 }
 
 .more-link {
   font-family: 'Courier New', monospace;
-  font-size: 0.75rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   text-decoration: none;
   display: inline-block;
@@ -306,3 +463,35 @@ section { margin-bottom: 2.5rem; }
 }
 
 .more-link:hover { color: var(--text-primary); }
+
+/* Scroll reveal (only when JS is running, so content never stays hidden) */
+.js body > section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.js body > section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js body > section { opacity: 1; transform: none; transition: none; }
+  .card, .card:hover { transform: none; transition: border-color 0.15s; }
+  .now-dot { animation: none; }
+}
+
+/* Page transitions: a soft cross-fade between pages (native browser view transitions;
+   browsers without support simply navigate as normal) */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) { animation: page-out 0.18s ease both; }
+::view-transition-new(root) { animation: page-in 0.28s ease both; }
+
+@keyframes page-out { to { opacity: 0; } }
+@keyframes page-in { from { opacity: 0; transform: translateY(6px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}

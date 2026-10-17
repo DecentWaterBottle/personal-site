@@ -10,13 +10,12 @@ export async function getStaticPaths() {
 const { item } = Astro.props
 const { Content } = await render(item)
 ---
-<Base title={`${item.data.title} — Jack Carter`}>
+<Base title={`${item.data.title} — Jack Carter`} description={item.data.description} image={item.data.thumb}>
   <div class="detail-header">
     <a href="/#portfolio" class="back-link">← portfolio</a>
-    <div style="display:flex; align-items:baseline; gap:0.75rem; margin-top:1rem;">
-      <h1>{item.data.title}</h1>
-      <span class={`type-badge ${item.data.type}`}>{item.data.type}</span>
-    </div>
+    <h1 style="margin-top:1rem;">
+      {item.data.title} <span class={`type-badge ${item.data.type}`}>{item.data.type}</span>
+    </h1>
     {item.data.tags && (
       <div class="tags" style="margin-top:0.75rem;">
         {item.data.tags.map((t: string) => <span class="tag">{t}</span>)}
