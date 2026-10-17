@@ -1,5 +1,5 @@
 ---
-title: "ÜFIP"
+title: "ÜNB/FNB Internet Platform"
 description: "Cross-sector IT platform enabling real-time coordination between Germany's electricity and gas network operators during supply bottlenecks."
 type: professional
 tags: ["Java", "Jakarta EE", "PrimeFaces", "Hibernate", "Oracle DB"]
@@ -20,4 +20,4 @@ I joined the project as a full-stack developer during active development, workin
 the backend, database layer, and frontend. I have since been involved in ongoing 
 maintenance and extension of the platform within a regulated KRITIS environment.
 
-Due to the sensitive nature of the project, implementation details are under NDA.
+Due to the sensitive nature of the project, exact implementation details are under NDA.
