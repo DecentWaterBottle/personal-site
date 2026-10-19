@@ -1,9 +1,8 @@
 ---
 title: "How I cracked substitution ciphers with hill climbing"
 date: 2026-05-22
-description:
+description: "An overview of my thesis on breaking substitution ciphers"
 ---
-![Gandalf with the Money](/images/gandalf_with_the_money.jpg)
 
 The idea came as I was reading The Code Book by Simon Singh, which explores the history of codes and cryptography, and their evolution throughout. Inspired by pioneers like Alan Turing, one of the greatest minds of the 20th century, I decided to explore eactky how the advent of modern computing, (which Turing himself is partially responsible for) would affect the decryption of primitive ciphers. 
 
